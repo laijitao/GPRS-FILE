@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.hp.cmcc.bboss.gprs.feignInterface.TestInterface;
 import com.hp.cmcc.bboss.gprs.pojo.BbdcTypeCdr;
 import com.hp.cmcc.bboss.gprs.pojo.GprsRecFilePara;
 import com.hp.cmcc.bboss.gprs.pojo.HandleReturnPara;
@@ -18,11 +17,9 @@ public class RestTemplateTestControl {
 	
 	@Autowired
 	RestTemplate rt;
-	@Autowired
-	TestInterface ti;
 	
 	@RequestMapping("/file/handleRecord")
-	public HandleReturnPara book3() {
+	public HandleReturnPara fileHandle() {
 		List<String> fb = new LinkedList<String>();
 		//测试文件体
 		fb.add("DONE,G03001120180606172722000000986,ADD,111800,1118000000059,上网行为管理AC-1000-A200-G1版一次性费用,"
@@ -46,25 +43,25 @@ public class RestTemplateTestControl {
 		
 		//测试配置
 		List<BbdcTypeCdr> rule = new LinkedList<>(); 
-		rule.add(new BbdcTypeCdr("err_code", ";", 0, "String"));
-		rule.add(new BbdcTypeCdr("oper_type", ";", 3, "String"));
-		rule.add(new BbdcTypeCdr("unified_period", ";", 4, "String"));
-		rule.add(new BbdcTypeCdr("service_id", ";", 7, "String"));
-		rule.add(new BbdcTypeCdr("app_name", ";", 9, "String"));
-		rule.add(new BbdcTypeCdr("nf_limit", ";", 11, "String"));
-		rule.add(new BbdcTypeCdr("valid_province", ";", 18, "String"));
-		rule.add(new BbdcTypeCdr("valid_date", ";", 30, "String"));
-		rule.add(new BbdcTypeCdr("service_type", ";", 40, "String"));
-		rule.add(new BbdcTypeCdr("expire_date", ";", 51, "String"));
-		rule.add(new BbdcTypeCdr("time_stamp", ";", 59, "String"));
-		rule.add(new BbdcTypeCdr("service_range", ";", 70, "String"));
-		rule.add(new BbdcTypeCdr("bdc_code", ";", 75, "String"));
-		rule.add(new BbdcTypeCdr("oper_serial_nbr", ";", 84, "String"));
-		rule.add(new BbdcTypeCdr("record_hash", ";", 93, "String"));
-		rule.add(new BbdcTypeCdr("proc_id", ";", 107, "String"));
-		rule.add(new BbdcTypeCdr("create_date", ";", 015, "String"));
-		rule.add(new BbdcTypeCdr("file_name", ";", 127, "String"));
-		rule.add(new BbdcTypeCdr("file_name_id", ";", 138, "String"));
+		rule.add(new BbdcTypeCdr("err_code", ";", 20, "String"));
+		rule.add(new BbdcTypeCdr("file_name", ";", 167, "String"));//
+		rule.add(new BbdcTypeCdr("oper_type", ";", 34, "String"));
+		rule.add(new BbdcTypeCdr("unified_period", ";", 148, "String"));
+		rule.add(new BbdcTypeCdr("service_id", ";", 47, "String"));
+		rule.add(new BbdcTypeCdr("app_name", ";", 59, "String"));
+		rule.add(new BbdcTypeCdr("expire_date", ";", 114, "String"));
+		rule.add(new BbdcTypeCdr("file_id", "/", 189, "String"));//
+		rule.add(new BbdcTypeCdr("valid_province", ";", 98, "String"));
+		rule.add(new BbdcTypeCdr("valid_date", ";", 103, "String"));
+		rule.add(new BbdcTypeCdr("service_type", ";", 67, "String"));
+		rule.add(new BbdcTypeCdr("create_date", ";", 159, "String"));//
+		rule.add(new BbdcTypeCdr("time_stamp", ";", 126, "String"));
+		rule.add(new BbdcTypeCdr("nf_limit", ";", 78, "String"));
+		rule.add(new BbdcTypeCdr("service_range", ";", 137, "String"));
+		rule.add(new BbdcTypeCdr("proc_id", ";", 27, "String"));
+		rule.add(new BbdcTypeCdr("bdc_code", ";", 0, "String"));//
+		rule.add(new BbdcTypeCdr("oper_serial_nbr", ";", 6, "String"));
+		rule.add(new BbdcTypeCdr("record_hash", ";", 13, "String"));//
 		
 		//测试文件名
 		String fn = "E_NFPAY_GPRS_FEE_20180503.020";
@@ -73,7 +70,7 @@ public class RestTemplateTestControl {
 		
 		GprsRecFilePara grfp = new GprsRecFilePara(fb, rule, fn, fnId);
 	    ResponseEntity<HandleReturnPara> responseEntity = rt.postForEntity(
-	    		"http://gprs-record-service/record/addField", grfp, HandleReturnPara.class);
+	    		"http://GPRS-RECORD-SERVICE/record/addField", grfp, HandleReturnPara.class);
 	    return responseEntity.getBody();
 	}
 }

@@ -15,7 +15,6 @@ public class BbdcTypeCdr implements Serializable {
 	private String dataReplace;   //
 	private String dataSeparator; //分隔符
 	private Integer fieldBegIdx;  //字段开始索引
-	private Integer fieldEndIdx;  //字段结束索引
 	private Integer fieldLen;     //字段长度
 	private String fieldName;     //字段名
 	private String fieldType;     //字段类型
@@ -36,7 +35,7 @@ public class BbdcTypeCdr implements Serializable {
 	}
 
 	public BbdcTypeCdr(String dataAlign, String dataFiller, String dataPattern, String dataReplace,
-			String dataSeparator, Integer fieldBegIdx, Integer fieldEndIdx, Integer fieldLen, String fieldName,
+			String dataSeparator, Integer fieldBegIdx, Integer fieldLen, String fieldName,
 			String fieldType, String fieldValue, String valName, String valType, String validateRegex) {
 		super();
 		this.dataAlign = dataAlign;
@@ -45,7 +44,6 @@ public class BbdcTypeCdr implements Serializable {
 		this.dataReplace = dataReplace;
 		this.dataSeparator = dataSeparator;
 		this.fieldBegIdx = fieldBegIdx;
-		this.fieldEndIdx = fieldEndIdx;
 		this.fieldLen = fieldLen;
 		this.fieldName = fieldName;
 		this.fieldType = fieldType;
@@ -158,14 +156,6 @@ public class BbdcTypeCdr implements Serializable {
 
 	public void setFieldBegIdx(Integer fieldBegIdx) {
 		this.fieldBegIdx = fieldBegIdx;
-	}
-
-	public Integer getFieldEndIdx() {
-		return fieldEndIdx;
-	}
-
-	public void setFieldEndIdx(Integer fieldEndIdx) {
-		this.fieldEndIdx = fieldEndIdx;
 	}
 
 
