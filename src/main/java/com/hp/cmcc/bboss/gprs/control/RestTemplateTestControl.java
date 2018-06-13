@@ -22,53 +22,65 @@ public class RestTemplateTestControl {
 	public HandleReturnPara fileHandle() {
 		List<String> fb = new LinkedList<String>();
 		//测试文件体
-		fb.add("DONE,G03001120180606172722000000986,ADD,111800,1118000000059,上网行为管理AC-1000-A200-G1版一次性费用,"
-				+ "上网行为管理AC-1000-A200-G1版一次性费用,20180323,29991231,20180321212347,001,1,20180525");
-		fb.add("DONE,G03001120180319172722000000986,MOD,111800,1118000000059,上网行为管理AC-1000-A200-G1版一次性费用,"
-				+ "上网行为管理AC-1000-A200-G1版一次性费用,20180323,29991231,20180321212347,851,1,20180525");
-		fb.add("DONE,G03001120180522172722000000986,DEL,111800,1118000000059,上网行为管理AC-1000-A200-G1版一次性费用,"
-				+ "上网行为管理AC-1000-A200-G1版一次性费用,20180323,29991231,20180321212347,871,1,20180525");
-		fb.add("DONE,G03001120180408172722000000986,DEC,111800,1118000000059,上网行为管理AC-1000-A200-G1版一次性费用,"
-				+ "上网行为管理AC-1000-A200-G1版一次性费用,20180323,29991231,20180321212347,251,1,20180525");
-		fb.add("DONE,G03001120180604172722000000986,ADD,111800,1118000000059,上网行为管理AC-1000-A200-G1版一次性费用,"
-				+ "上网行为管理AC-1000-A200-G1版一次性费用,20180323,29991231,20180321212347,331,1,20180525");
-		fb.add("DONE,G03001120180304172722000000986,MOD,111800,1118000000059,上网行为管理AC-1000-A200-G1版一次性费用,"
-				+ "上网行为管理AC-1000-A200-G1版一次性费用,20180323,29991231,20180321212347,811,1,20180525");
-		fb.add("DONE,G03001120180428172722000000986,ADD,111800,1118000000059,上网行为管理AC-1000-A200-G1版一次性费用,"
-				+ "上网行为管理AC-1000-A200-G1版一次性费用,20180323,29991231,20180321212347,151,1,20180525");
-		fb.add("DONE,G03001120180527172722000000986,DEC,111800,1118000000059,上网行为管理AC-1000-A200-G1版一次性费用,"
-				+ "上网行为管理AC-1000-A200-G1版一次性费用,20180323,29991231,20180321212347,111,1,20180525");
-		fb.add("DONE,G03001120180515172722000000986,ADD,111800,1118000000059,上网行为管理AC-1000-A200-G1版一次性费用,"
-				+ "上网行为管理AC-1000-A200-G1版一次性费用,20180323,29991231,20180321212347,100,1,20180525");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "150GB,851,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "162GB,751,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "36GB,451,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "64GB,241,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "17GB,751,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "23GB,451,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "34GB,011,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "56GB,234,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "170GB,543,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "120GB,123,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "110GB,567,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "10GB,234,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "50GB,456,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "100GB,097,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
+		fb.add("DONE,G03001120180606172722000000986,ADD,111800,上网行为管理AC-1000-A200-G1版一次性费用,业务模式,"
+				+ "250GB,685,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段");
 		
 		//测试配置
 		List<BbdcTypeCdr> rule = new LinkedList<>(); 
-		rule.add(new BbdcTypeCdr("err_code", ";", 20, "String"));
-		rule.add(new BbdcTypeCdr("file_name", ";", 167, "String"));//
-		rule.add(new BbdcTypeCdr("oper_type", ";", 34, "String"));
-		rule.add(new BbdcTypeCdr("unified_period", ";", 148, "String"));
-		rule.add(new BbdcTypeCdr("service_id", ";", 47, "String"));
-		rule.add(new BbdcTypeCdr("app_name", ";", 59, "String"));
-		rule.add(new BbdcTypeCdr("expire_date", ";", 114, "String"));
-		rule.add(new BbdcTypeCdr("file_id", "/", 189, "String"));//
-		rule.add(new BbdcTypeCdr("valid_province", ";", 98, "String"));
-		rule.add(new BbdcTypeCdr("valid_date", ";", 103, "String"));
-		rule.add(new BbdcTypeCdr("service_type", ";", 67, "String"));
-		rule.add(new BbdcTypeCdr("create_date", ";", 159, "String"));//
-		rule.add(new BbdcTypeCdr("time_stamp", ";", 126, "String"));
-		rule.add(new BbdcTypeCdr("nf_limit", ";", 78, "String"));
-		rule.add(new BbdcTypeCdr("service_range", ";", 137, "String"));
-		rule.add(new BbdcTypeCdr("proc_id", ";", 27, "String"));
-		rule.add(new BbdcTypeCdr("bdc_code", ";", 0, "String"));//
-		rule.add(new BbdcTypeCdr("oper_serial_nbr", ";", 6, "String"));
-		rule.add(new BbdcTypeCdr("record_hash", ";", 13, "String"));//
+		rule.add(new BbdcTypeCdr("err_code", ";",         0L, 3L, "String"));
+		rule.add(new BbdcTypeCdr("proc_id", ";",          1L, 4L, "String"));
+		rule.add(new BbdcTypeCdr("oper_type", ";",        2L, 5L, "String"));
+		rule.add(new BbdcTypeCdr("service_id", ";",       3L, 6L, "String"));
+		rule.add(new BbdcTypeCdr("app_name", ";",         4L, 7L, "String"));
+		rule.add(new BbdcTypeCdr("service_type", ";",     5L, 8L, "String"));
+		rule.add(new BbdcTypeCdr("nf_limit", ";",         6L, 9L, "String"));
+		rule.add(new BbdcTypeCdr("valid_province", ";",   7L, 10L, "String"));
+		rule.add(new BbdcTypeCdr("valid_date", ";",       8L, 11L, "String"));
+		rule.add(new BbdcTypeCdr("expire_date", ";",      9L, 12L, "String"));
+		rule.add(new BbdcTypeCdr("time_stamp", ";",       10L,13L, "String"));
+		rule.add(new BbdcTypeCdr("service_range", ";",    11L,14L, "String"));
+		rule.add(new BbdcTypeCdr("unified_period", ";",   12L,15L, "String"));
+		rule.add(new BbdcTypeCdr("create_date", ";",     -1L, 16L, "String"));//
+		rule.add(new BbdcTypeCdr("file_id", "/",         -1L, 18L, "String"));//
+		rule.add(new BbdcTypeCdr("file_name", ";",       -1L, 17L, "String"));//
+		rule.add(new BbdcTypeCdr("bdc_code", ";",        -1L, 0L, "String"));//
+		rule.add(new BbdcTypeCdr("oper_serial_nbr", ";", -1L, 1L, "String"));//
+		rule.add(new BbdcTypeCdr("record_hash", ";",     -1L, 2L, "String"));//
 		
 		//测试文件名
 		String fn = "E_NFPAY_GPRS_FEE_20180503.020";
 		//测试文件ID
-		Integer fnId = 555;
+		Integer fId = 555;
 		
-		GprsRecFilePara grfp = new GprsRecFilePara(fb, rule, fn, fnId);
+		GprsRecFilePara grfp = new GprsRecFilePara(fb, rule, fn, fId);
 	    ResponseEntity<HandleReturnPara> responseEntity = rt.postForEntity(
 	    		"http://GPRS-RECORD-SERVICE/record/addField", grfp, HandleReturnPara.class);
 	    return responseEntity.getBody();

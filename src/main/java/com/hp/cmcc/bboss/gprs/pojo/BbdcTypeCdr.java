@@ -1,6 +1,7 @@
 package com.hp.cmcc.bboss.gprs.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * The persistent class for the BBDC_TYPE_CDR database table.
@@ -9,50 +10,46 @@ import java.io.Serializable;
 public class BbdcTypeCdr implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String dataAlign;     //对齐方式
-	private String dataFiller;    //填充数据
-	private String dataPattern;   //
-	private String dataReplace;   //
-	private String dataSeparator; //分隔符
-	private Integer fieldBegIdx;  //字段开始索引
-	private Integer fieldLen;     //字段长度
-	private String fieldName;     //字段名
-	private String fieldType;     //字段类型
-	private String fieldValue;    //字段值
-	private String valName;       //
-	private String valType;       //
-	private String validateRegex; //字段校验正则表达式
+	private long id;
+	private String dataAlign;
+	private String dataFiller;
+	private Long dataLen;
+	private String dataPattern;
+	private String dataReplace;
+	private String dataSeparator;
+	private String dataType;
+	private Date effDate;
+	private Date expDate;
+	private Long fieldIdx;
+	private Long fieldLen;
+	private String fieldName;
+	private String fieldType;
+	private String fieldValue;
+	private Long formerIdx;
+	private Long hinderIdx;
+	private String valName;
+	private String valType;
+	private String validateRegex;
+
+	public BbdcTypeCdr(String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx, String fieldType) {
+		super();
+		this.fieldName = fieldName;
+		this.dataSeparator = dataSeparator;
+		this.fieldType = fieldType;
+		this.formerIdx = formerIdx;
+		this.hinderIdx = hinderIdx;
+	}
 
 	public BbdcTypeCdr() {
 	}
 
-	public BbdcTypeCdr(String fieldName, String dataSeparator, Integer fieldBegIdx, String fieldType) {
-		super();
-		this.dataSeparator = dataSeparator;
-		this.fieldBegIdx = fieldBegIdx;
-		this.fieldName = fieldName;
-		this.fieldType = fieldType;
+	public long getId() {
+		return this.id;
 	}
 
-	public BbdcTypeCdr(String dataAlign, String dataFiller, String dataPattern, String dataReplace,
-			String dataSeparator, Integer fieldBegIdx, Integer fieldLen, String fieldName,
-			String fieldType, String fieldValue, String valName, String valType, String validateRegex) {
-		super();
-		this.dataAlign = dataAlign;
-		this.dataFiller = dataFiller;
-		this.dataPattern = dataPattern;
-		this.dataReplace = dataReplace;
-		this.dataSeparator = dataSeparator;
-		this.fieldBegIdx = fieldBegIdx;
-		this.fieldLen = fieldLen;
-		this.fieldName = fieldName;
-		this.fieldType = fieldType;
-		this.fieldValue = fieldValue;
-		this.valName = valName;
-		this.valType = valType;
-		this.validateRegex = validateRegex;
+	public void setId(long id) {
+		this.id = id;
 	}
-
 
 	public String getDataAlign() {
 		return this.dataAlign;
@@ -68,6 +65,14 @@ public class BbdcTypeCdr implements Serializable {
 
 	public void setDataFiller(String dataFiller) {
 		this.dataFiller = dataFiller;
+	}
+
+	public Long getDataLen() {
+		return this.dataLen;
+	}
+
+	public void setDataLen(Long dataLen) {
+		this.dataLen = dataLen;
 	}
 
 	public String getDataPattern() {
@@ -94,11 +99,43 @@ public class BbdcTypeCdr implements Serializable {
 		this.dataSeparator = dataSeparator;
 	}
 
-	public Integer getFieldLen() {
+	public String getDataType() {
+		return this.dataType;
+	}
+
+	public void setDataType(String dataType) {
+		this.dataType = dataType;
+	}
+
+	public Date getEffDate() {
+		return this.effDate;
+	}
+
+	public void setEffDate(Date effDate) {
+		this.effDate = effDate;
+	}
+
+	public Date getExpDate() {
+		return this.expDate;
+	}
+
+	public void setExpDate(Date expDate) {
+		this.expDate = expDate;
+	}
+
+	public Long getFieldIdx() {
+		return this.fieldIdx;
+	}
+
+	public void setFieldIdx(Long fieldIdx) {
+		this.fieldIdx = fieldIdx;
+	}
+
+	public Long getFieldLen() {
 		return this.fieldLen;
 	}
 
-	public void setFieldLen(Integer fieldLen) {
+	public void setFieldLen(Long fieldLen) {
 		this.fieldLen = fieldLen;
 	}
 
@@ -126,6 +163,22 @@ public class BbdcTypeCdr implements Serializable {
 		this.fieldValue = fieldValue;
 	}
 
+	public Long getFormerIdx() {
+		return this.formerIdx;
+	}
+
+	public void setFormerIdx(Long formerIdx) {
+		this.formerIdx = formerIdx;
+	}
+
+	public Long getHinderIdx() {
+		return this.hinderIdx;
+	}
+
+	public void setHinderIdx(Long hinderIdx) {
+		this.hinderIdx = hinderIdx;
+	}
+
 	public String getValName() {
 		return this.valName;
 	}
@@ -149,14 +202,5 @@ public class BbdcTypeCdr implements Serializable {
 	public void setValidateRegex(String validateRegex) {
 		this.validateRegex = validateRegex;
 	}
-
-	public Integer getFieldBegIdx() {
-		return fieldBegIdx;
-	}
-
-	public void setFieldBegIdx(Integer fieldBegIdx) {
-		this.fieldBegIdx = fieldBegIdx;
-	}
-
 
 }
