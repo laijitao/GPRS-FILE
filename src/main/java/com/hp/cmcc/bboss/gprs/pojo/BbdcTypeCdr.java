@@ -31,13 +31,21 @@ public class BbdcTypeCdr implements Serializable {
 	private String valType;
 	private String validateRegex;
 
-	public BbdcTypeCdr(String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx, String fieldType) {
+	public BbdcTypeCdr(String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx) {
 		super();
 		this.fieldName = fieldName;
 		this.dataSeparator = dataSeparator;
-		this.fieldType = fieldType;
 		this.formerIdx = formerIdx;
 		this.hinderIdx = hinderIdx;
+	}
+	
+	public BbdcTypeCdr(String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx,String dataFiller) {
+		super();
+		this.fieldName = fieldName;
+		this.dataSeparator = dataSeparator;
+		this.formerIdx = formerIdx;
+		this.hinderIdx = hinderIdx;
+		this.dataFiller = dataFiller;
 	}
 
 	public BbdcTypeCdr() {
