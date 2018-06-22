@@ -1,4 +1,4 @@
-package com.hp.cmcc.bboss.gprs.pojo;
+package com.hp.cmcc.bboss.gprs.pojo1;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,18 +11,18 @@ public class GprsRecFilePara implements Serializable{
 	private List<String> fileBody;
 	private List<BbdcTypeCdr> rule;
 	private String fileName;
-	private Integer fileId;
+//	private Integer fileId;
 	
 	public GprsRecFilePara() {
 		super();
 	}
 
-	public GprsRecFilePara(List<String> fileBody, List<BbdcTypeCdr> rule, String fileName, Integer fileId) {
+	public GprsRecFilePara(List<String> fileBody, List<BbdcTypeCdr> rule, String fileName) {
 		super();
 		this.fileBody = fileBody;
 		this.rule = rule;
 		this.fileName = fileName;
-		this.fileId = fileId;
+//		this.fileId = fileId;
 	}
 
 	public List<BbdcTypeCdr> getRule() {
@@ -49,13 +49,13 @@ public class GprsRecFilePara implements Serializable{
 		this.fileName = fileName;
 	}
 
-	public Integer getfileId() {
-		return fileId;
-	}
-
-	public void setfileId(Integer fileId) {
-		this.fileId = fileId;
-	}
+//	public Integer getfileId() {
+//		return fileId;
+//	}
+//
+//	public void setfileId(Integer fileId) {
+//		this.fileId = fileId;
+//	}
 	
 	
 }

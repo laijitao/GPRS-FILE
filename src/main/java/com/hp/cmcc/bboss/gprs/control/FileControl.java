@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.hp.cmcc.bboss.gprs.feignInterface.TestInterface;
-import com.hp.cmcc.bboss.gprs.pojo.BbdcTypeCdr;
+import com.hp.cmcc.bboss.gprs.pojo1.BbdcTypeCdr;
 import com.hp.cmcc.bboss.gprs.utils.JsonUtils;
 
 @RestController
