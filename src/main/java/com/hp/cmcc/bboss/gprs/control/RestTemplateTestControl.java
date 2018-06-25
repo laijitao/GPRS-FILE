@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.hp.cmcc.bboss.gprs.pojo1.BbdcTypeCdr;
-import com.hp.cmcc.bboss.gprs.pojo1.GprsRecFilePara;
-import com.hp.cmcc.bboss.gprs.pojo1.HandleReturnPara;
+import com.hp.cmcc.bboss.gprs.pojo.BbdcTypeCdr;
+import com.hp.cmcc.bboss.gprs.pojo.GprsRecFilePara;
+import com.hp.cmcc.bboss.gprs.pojo.HandleReturnPara;
+import com.hp.cmcc.bboss.gprs.service.FileService;
 
 
 @RestController
@@ -20,40 +21,18 @@ public class RestTemplateTestControl {
 	@Autowired
 	RestTemplate rt;
 	
+	@Autowired
+	FileService fs;
+	
 	@RequestMapping("/file/handleRecord")
 	public HandleReturnPara fileHandle() {
-		List<String> fb = new LinkedList<String>();
-		//测试文件体
-		fb.add("DONE,G03116,ADD,111800,上网行为,业务模式,"
-				+ "150GB,851,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,1");
-		fb.add("DONE,G03116,ADD,111894,上网行为,业务模式,"
-				+ "162GB,751,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,2");
-		fb.add("DONE,G03116,ADD,257894,上网行为,业务模式,"
-				+ "36GB,451,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,3");
-		fb.add("DONE,G03116,ADD,456127,上网行为,业务模式,"
-				+ "64GB,241,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,4");
-		fb.add("F001,G03116,ADD,784512,上网行为,业务模式,"
-				+ "17GB,751,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,5");
-		fb.add("DONE,G03116,ADD,635241,上网行为,业务模式,"
-				+ "23GB,451,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,6");
-		fb.add("DONE,G03116,ADD,897945,上网行为,业务模式,"
-				+ "34GB,011,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,7");
-		fb.add("DONE,G03116,ADD,589452,上网行为,业务模式,"
-				+ "56GB,234,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,8");
-		fb.add("F005,G03116,ADD,369571,上网行为,业务模式,"
-				+ "170GB,543,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,9");
-		fb.add("DONE,G03116,ADD,124678,上网行为,业务模式,"
-				+ "120GB,123,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,10");
-		fb.add("DONE,G03116,ADD,958415,上网行为,业务模式,"
-				+ "110GB,567,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,11");
-		fb.add("F007,G03116,ADD,361598,上网行为,业务模式,"
-				+ "10GB,457,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,12");
-		fb.add("DONE,G03116,ADD,849562,上网行为,业务模式,"
-				+ "50GB,514,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,13");
-		fb.add("F008,G03116,ADD,152418,上网行为,业务模式,"
-				+ "100GB,874,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,14");
-		fb.add("DONE,G03116,ADD,254987,上网行为,业务模式,"
-				+ "250GB,456,20180613095345,20990101010000,20180613095356,业务地域范围,统付时段,15");
+		List<String> fb = null;
+		
+		try {
+			fb = fs.GetFileBody("D:\\test\\FileName.000");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		//测试配置
 		List<BbdcTypeCdr> rule = new LinkedList<>(); 
@@ -85,6 +64,18 @@ public class RestTemplateTestControl {
 	    ResponseEntity<HandleReturnPara> responseEntity = rt.postForEntity(
 	    		"http://BDC-CDR-SERVICE/record/addField", grfp, HandleReturnPara.class);
 	    return responseEntity.getBody();
+	}
+	
+	@RequestMapping(value = "/file/fileBody")
+	@ResponseBody
+	public List<String> getFileBody() {
+		List<String> fb = null;
+		try {
+			fb = fs.GetFileBody("D:\\test\\FileName.000");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return fb;
 	}
 	
 	@RequestMapping(value = "/file/test")
