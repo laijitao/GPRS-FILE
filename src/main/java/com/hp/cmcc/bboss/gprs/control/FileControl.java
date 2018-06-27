@@ -9,21 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.hp.cmcc.bboss.gprs.feignInterface.TestInterface;
-import com.hp.cmcc.bboss.gprs.pojo.BbdcTypeCdr;
 import com.hp.cmcc.bboss.gprs.utils.JsonUtils;
 
 @RestController
@@ -31,8 +22,6 @@ public class FileControl {
 	
 	@Autowired
 	RestTemplate rt;
-	@Autowired
-	TestInterface ti;
 	
 	@RequestMapping(value = "gprs")
 	@ResponseBody
@@ -81,14 +70,4 @@ public class FileControl {
 		return (List<String>)rt.postForObject("http://TEST-SERVICE/mapTest?map={1}",str,List.class);
 	}
 	
-	@RequestMapping(value = "/hi",method = RequestMethod.GET)
-	@ResponseBody
-    public String sayHi(){
-		Map<Integer,String> map = new HashMap<>();
-		for(int i = 0;i < 10;i++) {
-			map.put(i, i*10000+1+"");
-		}
-        return ti.sayHiFromClientOne(map);
-    }
-
 }
