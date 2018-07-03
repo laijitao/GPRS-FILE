@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.hp.cmcc.bboss.gprs.pojo.BbdcTypeCdr;
 import com.hp.cmcc.bboss.gprs.pojo.HandleReturnPara;
 
-@FeignClient(value = "BDC-CDR-SERVICE")
+//@FeignClient(value = "BDC-CDR-SERVICE")
+@FeignClient(value = "ljt-record-SERVICE")
 public interface fileBodyService {
 
 	@RequestMapping(value = "/record/addField",method = RequestMethod.GET,consumes = "application/json")

@@ -47,7 +47,17 @@ public class BbdcTypeCdr implements Serializable {
 		this.hinderIdx = hinderIdx;
 		this.dataFiller = dataFiller;
 	}
-
+	
+	public BbdcTypeCdr(String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx,String dataFiller,String dataPattern) {
+		super();
+		this.fieldName = fieldName;
+		this.dataSeparator = dataSeparator;
+		this.formerIdx = formerIdx;
+		this.hinderIdx = hinderIdx;
+		this.dataFiller = dataFiller;
+		this.dataPattern = dataPattern;
+	}
+	
 	public BbdcTypeCdr() {
 	}
 

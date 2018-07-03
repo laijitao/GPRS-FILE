@@ -35,7 +35,7 @@ public class FeignTestControl {
 		
 		//测试配置
 		List<BbdcTypeCdr> rule = new LinkedList<>(); 
-		//定向流量
+		//GPRS_APNNI
 //		rule.add(new BbdcTypeCdr("ERR_CODE", ";",         0L, 3L));
 //		rule.add(new BbdcTypeCdr("PROC_ID", ";",          1L, 4L));
 //		rule.add(new BbdcTypeCdr("OPER_TYPE", ";",        2L, 5L));
@@ -50,27 +50,31 @@ public class FeignTestControl {
 //		rule.add(new BbdcTypeCdr("FILE_NAME", ";",       -1L, 14L));//
 //		rule.add(new BbdcTypeCdr("BDC_CODE", ";",        -1L, 0L,"011701"));//
 //		rule.add(new BbdcTypeCdr("OPER_SERIAL_NBR", ";", -1L, 1L));//
-//		rule.add(new BbdcTypeCdr("RECORD_HASH", ";",     10L, 2L));//
+//		rule.add(new BbdcTypeCdr("RECORD_HASH", ";",     10L, 2L,"select OPER_SERIAL_NBR from import.bdc_gprs_011701_t where RECORD_HASH=?"));//
+//		rule.add(new BbdcTypeCdr("BDC_ERR_CODE", ";",    -1L, 15L,"DONE","11"));
+//		rule.add(new BbdcTypeCdr("LINE_NUM", ";",        -1L, 16L));//
 		
-		//GPRS_APNNI
-//		rule.add(new BbdcTypeCdr("ERR_CODE", ";",         0L, 3L));
-//		rule.add(new BbdcTypeCdr("PROC_ID", ";",          1L, 4L));
-//		rule.add(new BbdcTypeCdr("OPER_TYPE", ";",        2L, 5L));
-//		rule.add(new BbdcTypeCdr("SERVICE_ID", ";",       3L, 6L));
-//		rule.add(new BbdcTypeCdr("APP_NAME", ";",         4L, 7L));
-//		rule.add(new BbdcTypeCdr("SERVICE_TYPE", ";",     5L, 8L));
-//		rule.add(new BbdcTypeCdr("NF_LIMIT", ";",         6L, 9L));
-//		rule.add(new BbdcTypeCdr("VALID_PROVINCE", ";",   7L, 10L));
-//		rule.add(new BbdcTypeCdr("VALID_DATE", ";",       8L, 11L));
-//		rule.add(new BbdcTypeCdr("EXPIRE_DATE", ";",      9L, 12L));
-//		rule.add(new BbdcTypeCdr("TIME_STAMP", ";",       10L,13L));
-//		rule.add(new BbdcTypeCdr("SERVICE_RANGE", ";",    11L,14L));
-//		rule.add(new BbdcTypeCdr("UNIFIED_PERIOD", ";",   12L,15L));
-//		rule.add(new BbdcTypeCdr("CREATE_DATE", ";",     -1L, 16L,"sysdate"));//
-//		rule.add(new BbdcTypeCdr("FILE_NAME", ";",       -1L, 17L));//
-//		rule.add(new BbdcTypeCdr("BDC_CODE", ";",        -1L, 1L,"011701"));//
-//		rule.add(new BbdcTypeCdr("OPER_SERIAL_NBR", ";", -1L, 2L));//
-//		rule.add(new BbdcTypeCdr("RECORD_HASH", ";",     13L, 0L,"select OPER_SERIAL_NBR from import.bdc_gprs_011701_t where RECORD_HASH=?"));//
+		//定向流量
+		rule.add(new BbdcTypeCdr("ERR_CODE", ";",         0L, 3L));
+		rule.add(new BbdcTypeCdr("PROC_ID", ";",          1L, 4L));
+		rule.add(new BbdcTypeCdr("OPER_TYPE", ";",        2L, 5L));
+		rule.add(new BbdcTypeCdr("SERVICE_ID", ";",       3L, 6L));
+		rule.add(new BbdcTypeCdr("APP_NAME", ";",         4L, 7L));
+		rule.add(new BbdcTypeCdr("SERVICE_TYPE", ";",     5L, 8L));
+		rule.add(new BbdcTypeCdr("NF_LIMIT", ";",         6L, 9L));
+		rule.add(new BbdcTypeCdr("VALID_PROVINCE", ";",   7L, 10L));
+		rule.add(new BbdcTypeCdr("VALID_DATE", ";",       8L, 11L));
+		rule.add(new BbdcTypeCdr("EXPIRE_DATE", ";",      9L, 12L));
+		rule.add(new BbdcTypeCdr("TIME_STAMP", ";",       10L,13L));
+		rule.add(new BbdcTypeCdr("SERVICE_RANGE", ";",    11L,14L));
+		rule.add(new BbdcTypeCdr("UNIFIED_PERIOD", ";",   12L,15L));
+		rule.add(new BbdcTypeCdr("CREATE_DATE", ";",     -1L, 16L,"sysdate"));//
+		rule.add(new BbdcTypeCdr("FILE_NAME", ";",       -1L, 17L));//
+		rule.add(new BbdcTypeCdr("BDC_CODE", ";",        -1L, 1L,"011701"));//
+		rule.add(new BbdcTypeCdr("OPER_SERIAL_NBR", ";", -1L, 2L));//
+		rule.add(new BbdcTypeCdr("RECORD_HASH", ";",     13L, 0L,"select OPER_SERIAL_NBR from import.bdc_gprs_011701_t where RECORD_HASH=?"));//
+		rule.add(new BbdcTypeCdr("BDC_ERR_CODE", ";",    -1L, 18L,"DONE","14"));
+		rule.add(new BbdcTypeCdr("LINE_NUM", ";",        -1L, 19L));//
 		
 		//gprs业务计费代码
 //		rule.add(new BbdcTypeCdr("ERR_CODE", ";",         0L, 3L));
@@ -88,6 +92,8 @@ public class FeignTestControl {
 //		rule.add(new BbdcTypeCdr("BDC_CODE", ";",        -1L, 0L,"010201"));//
 //		rule.add(new BbdcTypeCdr("OPER_SERIAL_NBR", ";", -1L, 1L));//
 //		rule.add(new BbdcTypeCdr("RECORD_HASH", ";",     10L, 2L,"select OPER_SERIAL_NBR from import.bdc_gprs_011701_t where RECORD_HASH=?"));//
+//		rule.add(new BbdcTypeCdr("BDC_ERR_CODE", ";",    -1L, 15L,"DONE","11"));
+//		rule.add(new BbdcTypeCdr("LINE_NUM", ";",        -1L, 16L));//
 		//短信
 //		rule.add(new BbdcTypeCdr("ERR_CODE", ";",         0L, 3L));
 //		rule.add(new BbdcTypeCdr("PROC_ID", ";",          1L, 4L));
@@ -116,14 +122,14 @@ public class FeignTestControl {
 //		rule.add(new BbdcTypeCdr("CREATE_DATE", ";", -1L, 3L,"sysdate"));
 //		rule.add(new BbdcTypeCdr("FILE_NAME", ";",   -1L, 4L));
 		//各省网元通知加载状态文件
-		rule.add(new BbdcTypeCdr("PROC_ID", ";",      0L, 0L));
-		rule.add(new BbdcTypeCdr("NODE_TYPE", ";",    1L, 1L));
-		rule.add(new BbdcTypeCdr("PROVINCE_ID", ";",  2L, 2L));
-		rule.add(new BbdcTypeCdr("STATUS", ";",       3L, 3L));
-		rule.add(new BbdcTypeCdr("RSP_CODE", ";",     4L, 4L));
-		rule.add(new BbdcTypeCdr("RSP_DESC", ";",     5L, 5L));
-		rule.add(new BbdcTypeCdr("CREATE_DATE", ";", -1L, 6L,"sysdate"));
-		rule.add(new BbdcTypeCdr("FILE_NAME", ";",   -1L, 7L));
+//		rule.add(new BbdcTypeCdr("PROC_ID", ";",      0L, 0L));
+//		rule.add(new BbdcTypeCdr("NODE_TYPE", ";",    1L, 1L));
+//		rule.add(new BbdcTypeCdr("PROVINCE_ID", ";",  2L, 2L));
+//		rule.add(new BbdcTypeCdr("STATUS", ";",       3L, 3L));
+//		rule.add(new BbdcTypeCdr("RSP_CODE", ";",     4L, 4L));
+//		rule.add(new BbdcTypeCdr("RSP_DESC", ";",     5L, 5L));
+//		rule.add(new BbdcTypeCdr("CREATE_DATE", ";", -1L, 6L,"sysdate"));
+//		rule.add(new BbdcTypeCdr("FILE_NAME", ";",   -1L, 7L));
 		
 		HandleReturnPara hr = fbs.fileBodyHandle(fb, rule, fn);
 		return hr;
