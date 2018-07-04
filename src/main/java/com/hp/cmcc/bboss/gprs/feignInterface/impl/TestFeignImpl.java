@@ -12,6 +12,11 @@ import com.hp.cmcc.bboss.gprs.pojo.HandleReturnPara;
 public class TestFeignImpl implements fileBodyService{
 
 	public HandleReturnPara fileBodyHandle(List<String> fileBody, List<BbdcTypeCdr> rule, String fileName) {
+		return null;
+	}
+
+	@Override
+	public HandleReturnPara fileBodyHandleTest(List<String> fileBody, List<BbdcTypeCdr> rule, String fileName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
