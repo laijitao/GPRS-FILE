@@ -31,16 +31,18 @@ public class BbdcTypeCdr implements Serializable {
 	private String valType;
 	private String validateRegex;
 
-	public BbdcTypeCdr(String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx) {
+	public BbdcTypeCdr(String valName,String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx) {
 		super();
+		this.valName = valName;
 		this.fieldName = fieldName;
 		this.dataSeparator = dataSeparator;
 		this.formerIdx = formerIdx;
 		this.hinderIdx = hinderIdx;
 	}
 	
-	public BbdcTypeCdr(String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx,String dataFiller) {
+	public BbdcTypeCdr(String valName,String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx,String dataFiller) {
 		super();
+		this.valName = valName;
 		this.fieldName = fieldName;
 		this.dataSeparator = dataSeparator;
 		this.formerIdx = formerIdx;
@@ -48,8 +50,9 @@ public class BbdcTypeCdr implements Serializable {
 		this.dataFiller = dataFiller;
 	}
 	
-	public BbdcTypeCdr(String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx,String dataFiller,String dataPattern) {
+	public BbdcTypeCdr(String valName,String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx,String dataFiller,String dataPattern) {
 		super();
+		this.valName = valName;
 		this.fieldName = fieldName;
 		this.dataSeparator = dataSeparator;
 		this.formerIdx = formerIdx;

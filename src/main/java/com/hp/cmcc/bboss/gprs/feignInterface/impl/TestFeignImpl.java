@@ -15,10 +15,4 @@ public class TestFeignImpl implements fileBodyService{
 		return null;
 	}
 
-	@Override
-	public HandleReturnPara fileBodyHandleTest(List<String> fileBody, List<BbdcTypeCdr> rule, String fileName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

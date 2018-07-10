@@ -17,7 +17,4 @@ public interface fileBodyService {
 	HandleReturnPara fileBodyHandle(@RequestParam("fileBody") List<String> fileBody, @RequestBody List<BbdcTypeCdr> rule, 
 			@RequestParam("fileName") String fileName);
 	
-	@RequestMapping(value = "/record/addFieldTest",method = RequestMethod.GET,consumes = "application/json")
-	HandleReturnPara fileBodyHandleTest(@RequestBody List<String> fileBody, @RequestParam("rule") List<BbdcTypeCdr> rule, 
-			@RequestParam("fileName") String fileName);
 }
