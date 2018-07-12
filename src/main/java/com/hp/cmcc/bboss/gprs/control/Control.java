@@ -1,5 +1,6 @@
 package com.hp.cmcc.bboss.gprs.control;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class Control {
 
 	@RequestMapping("/file/feignTest")
 	public HandleReturnPara fileHandle() {
-		String path = "D:\\test\\";
+		String path = "D:\\test\\incoming\\";
 		
 		//测试文件名
 		String fn = fs.getFileName(path);
@@ -55,8 +56,8 @@ public class Control {
 //		rule.add(new BbdcTypeCdr("E_GPRS_APNNI","LINE_NUM", ";",        -1L, 16L));//
 		
 		//定向流量
-		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","ERR_CODE", ";",         0L, 3L));
-		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","PROC_ID", ";",          1L, 4L));
+		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","Err_CODE", ";",         0L, 3L));
+		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","PROC_id", ";",          1L, 4L));
 		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","OPER_TYPE", ";",        2L, 5L));
 		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","SERVICE_ID", ";",       3L, 6L));
 		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","APP_NAME", ";",         4L, 7L));
@@ -140,24 +141,12 @@ public class Control {
 		
 //		HandleReturnPara hr = fbs.fileBodyHandleTest(fb, rule, fn);
 		HandleReturnPara hr = fbs.fileBodyHandle(fb, rule, fn);
+		try {
+			fs.writeFile(hr);
+		} catch (IOException e) {
+			System.out.println("响应结果打印异常！");
+		}
 		return hr;
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 }

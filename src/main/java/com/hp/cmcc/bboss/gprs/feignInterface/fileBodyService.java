@@ -13,7 +13,7 @@ import com.hp.cmcc.bboss.gprs.pojo.HandleReturnPara;
 @FeignClient(value = "ljt-record-SERVICE")
 public interface fileBodyService {
 
-	@RequestMapping(value = "/record/addField",method = RequestMethod.GET,consumes = "application/json")
+	@RequestMapping(value = "/record/addField",method = RequestMethod.POST,consumes = "application/json")
 	HandleReturnPara fileBodyHandle(@RequestParam("fileBody") List<String> fileBody, @RequestBody List<BbdcTypeCdr> rule, 
 			@RequestParam("fileName") String fileName);
 	

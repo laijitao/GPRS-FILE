@@ -3,6 +3,7 @@ package com.hp.cmcc.bboss.gprs.service;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -11,6 +12,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import com.hp.cmcc.bboss.gprs.pojo.HandleReturnPara;
 
 @Service
 public class FileService {
@@ -48,5 +51,29 @@ public class FileService {
 			return f;
 		}
 		return null;
+	}
+	
+	public void writeFile(HandleReturnPara hrp) throws IOException {
+		String record = hrp.getRecords().get(1);
+		String[] R = record.split(",",-1);
+		String fileName = R[R.length-3].substring(1, R[R.length-3].length()-1);
+		File file = new File("D:\\test\\outFile\\"+fileName);
+		if(!file.exists()) {
+			file.createNewFile();
+		}
+		FileOutputStream out = null;
+		try {
+			out= new FileOutputStream(file);
+			for(String rec : hrp.getRecords()) {
+				out.write(rec.getBytes());
+				out.write("\r\n".getBytes());
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			out.close();
+		}
 	}
 }

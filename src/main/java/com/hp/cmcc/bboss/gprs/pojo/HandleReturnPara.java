@@ -1,14 +1,18 @@
 package com.hp.cmcc.bboss.gprs.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class HandleReturnPara {
+public class HandleReturnPara  implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<String> records;
 	private Integer errNum;
 	
 	public HandleReturnPara() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public HandleReturnPara(List<String> records, Integer errNum) {

@@ -3,10 +3,13 @@ package com.hp.cmcc.bboss.gprs.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
 /**
  * The persistent class for the BBDC_TYPE_CDR database table.
  * 
  */
+@Component
 public class BbdcTypeCdr implements Serializable {
 	private static final long serialVersionUID = 1L;
 
