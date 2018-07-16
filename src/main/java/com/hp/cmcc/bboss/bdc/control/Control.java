@@ -1,6 +1,7 @@
-package com.hp.cmcc.bboss.gprs.control;
+package com.hp.cmcc.bboss.bdc.control;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,10 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hp.cmcc.bboss.gprs.feignInterface.fileBodyService;
-import com.hp.cmcc.bboss.gprs.pojo.BbdcTypeCdr;
-import com.hp.cmcc.bboss.gprs.pojo.HandleReturnPara;
-import com.hp.cmcc.bboss.gprs.service.FileService;
+import com.hp.cmcc.bboss.bdc.feignInterface.fileBodyService;
+import com.hp.cmcc.bboss.bdc.pojo.BbdcTypeCdr;
+import com.hp.cmcc.bboss.bdc.pojo.HandleReturnPara;
+import com.hp.cmcc.bboss.bdc.pojo.User;
+import com.hp.cmcc.bboss.bdc.service.FileService;
 
 @RestController
 public class Control {
@@ -73,7 +75,7 @@ public class Control {
 		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","FILE_NAME", ";",       -1L, 17L));//
 		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","BDC_CODE", ";",        -1L, 1L,"011701"));//
 		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","OPER_SERIAL_NBR", ";", -1L, 2L));//
-		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","RECORD_HASH", ";",     13L, 0L,"select OPER_SERIAL_NBR from bdc_gprs_011701_t where RECORD_HASH=?"));//
+		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","ORDER_ID", ";",        13L, 0L,"select OPER_SERIAL_NBR from bdc_gprs_011701_t where ORDER_ID=?"));//
 		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","BDC_ERR_CODE", ";",    -1L, 18L,"DONE","14"));
 		rule.add(new BbdcTypeCdr("E_NFPAY_GPRS_FEE","LINE_NUM", ";",        -1L, 19L));//
 		
@@ -141,12 +143,29 @@ public class Control {
 		
 //		HandleReturnPara hr = fbs.fileBodyHandleTest(fb, rule, fn);
 		HandleReturnPara hr = fbs.fileBodyHandle(fb, rule, fn);
-		try {
-			fs.writeFile(hr);
-		} catch (IOException e) {
-			System.out.println("响应结果打印异常！");
-		}
+//		try {
+//			fs.writeFile(hr);
+//		} catch (IOException e) {
+//			System.out.println("响应结果打印异常！");
+//		}
 		return hr;
 		
 	}
+	
+//	@RequestMapping("/test")
+//	public List<String> test() {
+//		List<User> list = new LinkedList<>();
+//		list.add(new User());
+//		list.add(new User());
+//		list.add(new User());
+//		String name = "liuyuanqin";
+//		Date ct = new Date();
+//		return fbs.test(list,name,ct);
+//	}
+//	
+//	@RequestMapping("/testSql")
+//	public String testSql() {
+//		String sql = "select *from bbdc_type_cdr where id=1";
+//		return fbs.testSql(sql);
+//	}
 }

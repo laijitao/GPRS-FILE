@@ -1,4 +1,4 @@
-package com.hp.cmcc.bboss.gprs;
+package com.hp.cmcc.bboss.bdc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

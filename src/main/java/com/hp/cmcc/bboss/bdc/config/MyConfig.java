@@ -1,4 +1,4 @@
-package com.hp.cmcc.bboss.gprs.config;
+package com.hp.cmcc.bboss.bdc.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.hp.cmcc.bboss.gprs.service;
+package com.hp.cmcc.bboss.bdc.service;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.hp.cmcc.bboss.gprs.pojo.HandleReturnPara;
+import com.hp.cmcc.bboss.bdc.pojo.HandleReturnPara;
 
 @Service
 public class FileService {
