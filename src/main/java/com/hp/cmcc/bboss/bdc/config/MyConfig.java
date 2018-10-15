@@ -13,5 +13,5 @@ public class MyConfig {
 	RestTemplate restTemplate() {
 	    return new RestTemplate();
 	}
-
+	
 }

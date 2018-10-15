@@ -3,75 +3,99 @@ package com.hp.cmcc.bboss.bdc.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the BBDC_TYPE_CDR database table.
  * 
  */
-@Component
+@Table(name="BBDC_TYPE_CDR")
+@Entity
 public class BbdcTypeCdr implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private long id;
-	private String dataAlign;
-	private String dataFiller;
-	private Long dataLen;
-	private String dataPattern;
-	private String dataReplace;
-	private String dataSeparator;
-	private String dataType;
-	private Date effDate;
-	private Date expDate;
-	private Long fieldIdx;
-	private Long fieldLen;
-	private String fieldName;
-	private String fieldType;
-	private String fieldValue;
-	private Long formerIdx;
-	private Long hinderIdx;
-	private String valName;
-	private String valType;
-	private String validateRegex;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_LJT")
+	@SequenceGenerator(name = "SEQ_LJT", sequenceName = "SEQ_LJT_TEST", initialValue = 1, allocationSize = 1)
+	private Long id;
+	@Column(name="DATA_ALIGN")
+	private String dataAlign;    //对其方式
+	@Column(name="DATA_FILLER")
+	private String dataFiller;   //数据填充
+	@Column(name="DATA_LEN")
+	private Long dataLen;        //数据长度
+	@Column(name="DATA_PATTERN")
+	private String dataPattern;  //
+	@Column(name="DATA_REPLACE")
+	private String dataReplace;  //缺省填充
+	@Column(name="DATA_SEPARATOR")
+	private String dataSeparator;//分隔符
+	@Column(name="DATA_TYPE")
+	private String dataType;     //数据类型
+	@Column(name="EFF_DATE")
+	private Date effDate;        //生效时间:2018/6/1
+	@Column(name="EXP_DATE")
+	private Date expDate;        //失效时间
+	@Column(name="FIELD_IDX")
+	private Long fieldIdx;       //字段索引
+	@Column(name="FIELD_LEN")
+	private Long fieldLen;       //字段长度
+	@Column(name="FIELD_NAME")
+	private String fieldName;    //字段名
+	@Column(name="FIELD_TYPE")
+	private String fieldType;    //字段类型（CDR，CVS，enum）
+	@Column(name="FIELD_VALUE")
+	private String fieldValue;   //字段取值的来源（来自数据库查询还是系统配置）
+	@Column(name="FORMER_IDX")
+	private Long formerIdx;      //记录处理前字段所处位置
+	@Column(name="HINDER_IDX")
+	private Long hinderIdx;      //记录处理后字段所处位置
+	@Column(name="VAL_NAME")
+	private String valName;      //业务名称
+	@Column(name="VAL_TYPE")
+	private String valType;      //字段所属部分（文件名，文件头，文件体，文件尾）
+	@Column(name="VALIDATE_REGEX")
+	private String validateRegex;//校验正则表达式
 
-	public BbdcTypeCdr(String valName,String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx) {
+	public BbdcTypeCdr(Long id, String valName, String valType, String fieldName, String fieldType, String fieldValue,
+			Long fieldIdx, Long fieldLen, String dataType, Long dataLen, String dataPattern, String dataSeparator,
+			String dataAlign, String dataFiller, String dataReplace, String validateRegex,
+			Long formerIdx, Long hinderIdx) {
 		super();
-		this.valName = valName;
-		this.fieldName = fieldName;
-		this.dataSeparator = dataSeparator;
-		this.formerIdx = formerIdx;
-		this.hinderIdx = hinderIdx;
-	}
-	
-	public BbdcTypeCdr(String valName,String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx,String dataFiller) {
-		super();
-		this.valName = valName;
-		this.fieldName = fieldName;
-		this.dataSeparator = dataSeparator;
-		this.formerIdx = formerIdx;
-		this.hinderIdx = hinderIdx;
+		this.id = id;
+		this.dataAlign = dataAlign;
 		this.dataFiller = dataFiller;
-	}
-	
-	public BbdcTypeCdr(String valName,String fieldName,String dataSeparator, Long formerIdx, Long hinderIdx,String dataFiller,String dataPattern) {
-		super();
-		this.valName = valName;
-		this.fieldName = fieldName;
-		this.dataSeparator = dataSeparator;
-		this.formerIdx = formerIdx;
-		this.hinderIdx = hinderIdx;
-		this.dataFiller = dataFiller;
+		this.dataLen = dataLen;
 		this.dataPattern = dataPattern;
+		this.dataReplace = dataReplace;
+		this.dataSeparator = dataSeparator;
+		this.dataType = dataType;
+		this.fieldIdx = fieldIdx;
+		this.fieldLen = fieldLen;
+		this.fieldName = fieldName;
+		this.fieldType = fieldType;
+		this.fieldValue = fieldValue;
+		this.formerIdx = formerIdx;
+		this.hinderIdx = hinderIdx;
+		this.valName = valName;
+		this.valType = valType;
+		this.validateRegex = validateRegex;
 	}
-	
+
 	public BbdcTypeCdr() {
 	}
 
-	public long getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -225,6 +249,16 @@ public class BbdcTypeCdr implements Serializable {
 
 	public void setValidateRegex(String validateRegex) {
 		this.validateRegex = validateRegex;
+	}
+
+	@Override
+	public String toString() {
+		return "BbdcTypeCdr [id=" + id + ", dataAlign=" + dataAlign + ", dataFiller=" + dataFiller + ", dataLen="
+				+ dataLen + ", dataPattern=" + dataPattern + ", dataReplace=" + dataReplace + ", dataSeparator="
+				+ dataSeparator + ", dataType=" + dataType + ", effDate=" + effDate + ", expDate=" + expDate
+				+ ", fieldIdx=" + fieldIdx + ", fieldLen=" + fieldLen + ", fieldName=" + fieldName + ", fieldType="
+				+ fieldType + ", fieldValue=" + fieldValue + ", formerIdx=" + formerIdx + ", hinderIdx=" + hinderIdx
+				+ ", valName=" + valName + ", valType=" + valType + ", validateRegex=" + validateRegex + "]";
 	}
 
 }
