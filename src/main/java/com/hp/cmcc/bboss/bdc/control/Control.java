@@ -71,6 +71,9 @@ public class Control {
 		
 		//测试配置
 		List<BbdcTypeCdr> rule = bbdcTypeCdrDao.findByValNameAndValType("D_5300_0632_GPRSAPNNI", "F_BODY"); 
+		for(BbdcTypeCdr cdr : rule){
+			System.out.println(cdr.toString());
+		}
 		String tranId = "TRAN_ID";
 		RequestParamter requestParamter = new RequestParamter(fb, rule, fn,tranId );
 		BdcCompareResult hr = bcc.threadHandle(requestParamter);
